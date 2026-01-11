@@ -36,6 +36,19 @@ QR code to open invitation
 
 RSVP form with response count
 
+🛠️ Technologies Used
+
+HTML5
+
+CSS3
+
+JavaScript
+
+QR Code Generator
+
+Google Maps Integration
+
+
 Footer
 
 Aarav & Ananya
