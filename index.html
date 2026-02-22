@@ -1,2255 +1,263 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aarav &amp; Ananya - Wedding Invitation</title>
-    <meta
-      name="description"
-      content="Join us in celebrating the wedding of Aarav and Ananya on 12th December 2026"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/_sdk/element_sdk.js"></script>
-    <script src="/_sdk/data_sdk.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lora:wght@400;500;600&amp;display=swap"
-      rel="stylesheet"
-    />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Message for Adnan</title>
     <style>
-      body {
-        box-sizing: border-box;
-      }
-
-      .font-display {
-        font-family: "Playfair Display", serif;
-      }
-
-      .font-heading {
-        font-family: "Cinzel", serif;
-      }
-
-      .font-body {
-        font-family: "Lora", serif;
-      }
-
-      /* Envelope Styles - Portrait */
-      .envelope-wrapper {
-        perspective: 2000px;
-      }
-
-      .envelope-container {
-        position: relative;
-        width: 100%;
-        max-width: 420px;
-        aspect-ratio: 0.65;
-        transform-style: preserve-3d;
-        transition: transform 1s ease;
-      }
-
-      .envelope-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #2d1810 0%, #4a2c1a 100%);
-        border: 3px solid #d4af37;
-        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
-        border-radius: 8px;
-      }
-
-      .envelope-flap {
-        position: absolute;
-        width: 100%;
-        height: 50%;
-        top: 0;
-        left: 0;
-        background: linear-gradient(135deg, #3d241a 0%, #5a3420 100%);
-        border: 3px solid #d4af37;
-        border-bottom: none;
-        transform-origin: top center;
-        transform: rotateX(0deg);
-        transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
-        z-index: 3;
-        border-radius: 8px 8px 0 0;
-      }
-
-      .envelope-flap.open {
-        transform: rotateX(-180deg);
-      }
-
-      /* Floral Seal Button */
-      .wax-seal {
-        position: absolute;
-        top: 48%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 130px;
-        height: 130px;
-        background: radial-gradient(
-          circle at 35% 35%,
-          #ffd700,
-          #f4c430,
-          #d4af37
-        );
-        border-radius: 50%;
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.8),
-          inset 0 -4px 15px rgba(139, 69, 19, 0.4),
-          inset 0 4px 15px rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-        z-index: 4;
-        transition: all 0.4s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: floralPulse 2.5s ease-in-out infinite;
-        border: 4px solid rgba(255, 215, 0, 0.6);
-      }
-
-      @keyframes floralPulse {
-        0%,
-        100% {
-          box-shadow: 0 10px 30px rgba(212, 175, 55, 0.8),
-            inset 0 -4px 15px rgba(139, 69, 19, 0.4),
-            inset 0 4px 15px rgba(255, 255, 255, 0.5),
-            0 0 0 0 rgba(212, 175, 55, 0.4);
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --text: #f1f5f9;
+            --dim: #94a3b8;
+            --heart: #ef4444;
         }
-        50% {
-          box-shadow: 0 15px 40px rgba(212, 175, 55, 1),
-            inset 0 -4px 15px rgba(139, 69, 19, 0.4),
-            inset 0 4px 15px rgba(255, 255, 255, 0.6),
-            0 0 0 25px rgba(212, 175, 55, 0);
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            color: var(--text);
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
         }
-      }
 
-      .wax-seal:hover {
-        transform: translate(-50%, -50%) scale(1.12) rotate(10deg);
-        box-shadow: 0 18px 50px rgba(212, 175, 55, 1);
-      }
+        /* Stars Background */
+        .stars { position: fixed; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
 
-      .wax-seal::before {
-        content: "";
-        width: 90px;
-        height: 90px;
-        background: radial-gradient(
-          circle at 40% 40%,
-          rgba(255, 255, 255, 0.6),
-          transparent 70%
-        );
-        border-radius: 50%;
-        position: absolute;
-      }
+        /* Unlock Screen */
+        .lock { text-align: center; cursor: pointer; z-index: 5; transition: 0.5s; }
+        .heart-icon { font-size: 70px; animation: beat 1.5s infinite; filter: drop-shadow(0 0 20px var(--heart)); }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
-      /* Floral Petals */
-      .floral-seal-design {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        animation: rotatePetals 25s linear infinite;
-      }
-
-      @keyframes rotatePetals {
-        from {
-          transform: rotate(0deg);
+        /* Terminal UI */
+        .terminal {
+            display: none;
+            flex-direction: column;
+            width: 92%;
+            max-width: 550px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
-        to {
-          transform: rotate(360deg);
+
+        .topbar {
+            padding: 12px;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            gap: 8px;
+            border-radius: 12px 12px 0 0;
+            align-items: center;
         }
-      }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
 
-      .floral-petal {
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        background: radial-gradient(
-          ellipse at center,
-          rgba(255, 255, 255, 0.85),
-          rgba(255, 215, 0, 0.4)
-        );
-        border-radius: 50% 0 50% 0;
-        opacity: 0.7;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      }
-
-      .seal-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-      }
-
-      .seal-letter {
-        font-family: "Cinzel", serif;
-        font-size: 17px;
-        font-weight: 700;
-        color: #2d1810;
-        text-shadow: 0 1px 4px rgba(255, 255, 255, 0.7);
-        line-height: 1.3;
-        display: block;
-        letter-spacing: 1px;
-      }
-
-      .seal-subtitle {
-        font-family: "Lora", serif;
-        font-size: 9px;
-        color: #5a3420;
-        margin-top: 3px;
-        font-style: italic;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-      }
-
-      .envelope-body.opening {
-        animation: envelopeDisappear 1s ease forwards 1.5s;
-      }
-
-      @keyframes envelopeDisappear {
-        to {
-          opacity: 0;
-          transform: scale(0.8) translateY(-100px);
+        .content {
+            padding: 25px;
+            min-height: 400px;
+            max-height: 450px;
+            overflow-y: auto;
+            line-height: 1.7;
+            font-size: 14px;
         }
-      }
 
-      /* Gold Gradient Text */
-      .text-gold {
-        background: linear-gradient(135deg, #ffd700, #fdb931, #ffd700);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
+        .page { display: none; }
+        .page.active { display: block; }
 
-      /* Optimized Text Gold with Shimmer */
-      .text-gold {
-        /* Combine your shimmer gradient here */
-        background: linear-gradient(
-          135deg,
-          #d4af37 0%,
-          #ffd700 25%,
-          #f4e4bc 50%,
-          #ffd700 75%,
-          #d4af37 100%
-        );
-        background-size: 200% auto;
+        /* Cursor */
+        .cursor { display: inline-block; width: 8px; height: 1.2em; background: var(--accent); vertical-align: middle; animation: blink 1s infinite; margin-left: 4px;}
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
 
-        /* The "Magic" Clipping Properties */
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        /* Animation */
-        animation: shimmer 3s linear infinite;
-
-        /* Forces the browser to render the text before clipping */
-        display: inline-block;
-      }
-
-      @keyframes shimmer {
-        0% {
-          background-position: 0% center;
+        /* Form */
+        form { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+        input, textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: white;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 14px;
         }
-        100% {
-          background-position: 200% center;
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+        /* Footer Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
+            border-radius: 0 0 12px 12px;
         }
-      }
-      .card-inner {
-        transform: rotateX(1deg);
-        transition: transform 0.6s ease;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
-          0 0 80px rgba(212, 175, 55, 0.1);
-      }
-
-      .card-inner:hover {
-        transform: rotateX(0deg) translateY(-8px);
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5),
-          0 0 100px rgba(212, 175, 55, 0.15);
-      }
-
-      /* Ornamental Divider */
-      .ornamental-divider {
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        position: relative;
-      }
-
-      .ornamental-divider::before,
-      .ornamental-divider::after {
-        content: "◆";
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #d4af37;
-        font-size: 12px;
-      }
-
-      .ornamental-divider::before {
-        left: 45%;
-      }
-
-      .ornamental-divider::after {
-        right: 45%;
-      }
-
-      /* Countdown Boxes */
-      .countdown-box {
-        background: linear-gradient(145deg, #1a1410, #2d2418);
-        border: 1px solid rgba(212, 175, 55, 0.4);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        animation: floatUp 3s ease-in-out infinite;
-      }
-
-      .countdown-box:nth-child(1) {
-        animation-delay: 0s;
-      }
-      .countdown-box:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .countdown-box:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-      .countdown-box:nth-child(4) {
-        animation-delay: 0.6s;
-      }
-
-      @keyframes floatUp {
-        0%,
-        100% {
-          transform: translateY(0px);
+        button {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        50% {
-          transform: translateY(-10px);
+        button:hover:not(:disabled) { background: var(--accent); color: var(--bg); box-shadow: 0 0 10px var(--accent); }
+        button:disabled { border-color: #334155; color: #334155; cursor: not-allowed; }
+        .page-info { font-size: 11px; color: var(--dim); align-self: center; }
+
+        .submit-btn {
+            background: var(--accent);
+            color: var(--bg);
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
         }
-      }
-
-      /* Input Styles */
-      .input-luxury {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .input-luxury:focus {
-        border-color: #d4af37;
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        outline: none;
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      /* Button Styles */
-      .btn-gold {
-        background: linear-gradient(
-          135deg,
-          #d4af37 0%,
-          #ffd700 50%,
-          #d4af37 100%
-        );
-        background-size: 200% 200%;
-        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        transition: all 0.3s ease;
-      }
-
-      .btn-gold:hover:not(:disabled) {
-        background-position: 100% 50%;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
-      }
-
-      .btn-gold:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      /* Smooth Scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Background Pattern */
-      .bg-pattern {
-        background-color: #0a0806;
-        background-image: radial-gradient(
-            circle at 20% 30%,
-            rgba(212, 175, 55, 0.05) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(212, 175, 55, 0.05) 0%,
-            transparent 50%
-          ),
-          repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 100px,
-            rgba(212, 175, 55, 0.02) 100px,
-            rgba(212, 175, 55, 0.02) 200px
-          );
-      }
-
-      /* Language Toggle */
-      .lang-toggle {
-        background: rgba(212, 175, 55, 0.1);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        backdrop-filter: blur(10px);
-      }
-
-      /* Fade In Animation */
-      .fade-in {
-        animation: fadeIn 1s ease forwards;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Scroll Reveal Animation */
-      .scroll-reveal {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-
-      .scroll-reveal.revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Music Toggle Button */
-      .music-toggle {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #d4af37, #ffd700);
-        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 1000;
-        transition: all 0.3s ease;
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      .music-toggle:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
-      }
-
-      .music-icon {
-        width: 24px;
-        height: 24px;
-        color: #0a0806;
-      }
-
-      /* Scrollbar Styles */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #0a0806;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #d4af37, #ffd700);
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #ffd700, #d4af37);
-      }
-
-      /* Slider Styles */
-      .slider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 6px;
-        border-radius: 3px;
-        background: rgba(212, 175, 55, 0.2);
-        outline: none;
-      }
-
-      .slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #d4af37, #ffd700);
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
-      }
-
-      .slider::-moz-range-thumb {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #d4af37, #ffd700);
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
-        border: none;
-      }
-
-      /* FAQ Accordion */
-      .faq-item {
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        background: linear-gradient(
-          135deg,
-          rgba(26, 20, 16, 0.6),
-          rgba(15, 12, 8, 0.6)
-        );
-      }
-
-      .faq-item:hover {
-        border-color: rgba(212, 175, 55, 0.4);
-        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
-      }
-
-      .faq-question {
-        cursor: pointer;
-        padding: 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.3s ease;
-      }
-
-      .faq-question:hover {
-        background: rgba(212, 175, 55, 0.05);
-      }
-
-      .faq-icon {
-        width: 24px;
-        height: 24px;
-        transition: transform 0.3s ease;
-        color: #d4af37;
-        flex-shrink: 0;
-      }
-
-      .faq-item.active .faq-icon {
-        transform: rotate(180deg);
-      }
-
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.4s ease;
-        padding: 0 1.5rem;
-      }
-
-      .faq-item.active .faq-answer {
-        max-height: 500px;
-        padding: 0 1.5rem 1.5rem 1.5rem;
-      }
-
-      /* Icon Animations */
-      @keyframes iconBounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px);
-        }
-      }
-
-      .icon-bounce {
-        animation: iconBounce 2s ease-in-out infinite;
-      }
-
-      /* Staggered Reveal */
-      .stagger-item {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: staggerReveal 0.6s ease forwards;
-      }
-
-      @keyframes staggerReveal {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .stagger-item:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .stagger-item:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .stagger-item:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      .stagger-item:nth-child(4) {
-        animation-delay: 0.4s;
-      }
-      .stagger-item:nth-child(5) {
-        animation-delay: 0.5s;
-      }
-      .stagger-item:nth-child(6) {
-        animation-delay: 0.6s;
-      }
     </style>
-    <style>
-      @view-transition {
-        navigation: auto;
-      }
-    </style>
-  </head>
-  <body class="h-full font-body bg-pattern text-[#F4E4BC]">
-    <!-- Language Toggle -->
-    <div class="fixed top-6 right-6 z-50">
-      <select
-        id="language-select"
-        class="lang-toggle px-4 py-2 rounded-full text-[#D4AF37] font-medium cursor-pointer"
-      >
-        <option value="en">English</option>
-        <option value="hi">हिन्दी</option>
-      </select>
+</head>
+<body>
+
+<div class="stars" id="starfield"></div>
+
+<div class="lock" id="gate" onclick="initSession()">
+    <div class="heart-icon">❤️</div>
+    <p style="letter-spacing:4px; color:var(--accent); margin-top:20px; font-size: 11px;">RUN: SECURE_COMMUNICATION.sh</p>
+</div>
+
+<div class="terminal" id="mainUI">
+    <div class="topbar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span style="font-size:9px; margin-left:auto; opacity: 0.4;">ID: 1803-ADNAN-SUMYYA</span>
     </div>
-    <!-- Music Toggle -->
-    <div id="music-toggle" class="music-toggle" title="Toggle Music">
-      <svg
-        class="music-icon"
-        id="music-icon-play"
-        viewbox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path
-          d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
-        />
-      </svg>
-      <svg
-        class="music-icon hidden"
-        id="music-icon-pause"
-        viewbox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-      </svg>
+
+    <div class="content" id="scrollBox">
+        <div class="page active" id="p1">
+            <span id="txt1"></span><span class="cursor" id="c1"></span>
+        </div>
+
+        <div class="page" id="p2">
+            <span id="txt2"></span><span class="cursor" id="c2"></span>
+        </div>
+
+        <div class="page" id="p3">
+            <span id="txt3"></span><span class="cursor" id="c3"></span>
+        </div>
+
+        <div class="page" id="p4">
+            <p style="color:var(--accent); margin-bottom: 10px;">// REPLY_TRANSMISSION_OPEN</p>
+            <p>Adnan, type your message to your wife Sumyya:</p>
+            <form action="https://formspree.io/f/xwvnrddb" method="POST">
+                <input type="email" name="email" value="adnan@example.com" required>
+                <textarea name="message" rows="5" placeholder="Enter your response..." required></textarea>
+                <button type="submit" class="submit-btn">SEND TO SUMYYA DIRECTLY</button>
+            </form>
+        </div>
     </div>
-    <!-- Envelope Section -->
-    <section
-      id="envelope-section"
-      class="h-full flex flex-col items-center justify-center px-4 py-8"
-    >
-      <div class="envelope-wrapper">
-        <div class="envelope-container envelope-body">
-          <div class="envelope-back"></div>
-          <div class="envelope-flap" id="envelope-flap"></div>
-          <div class="wax-seal" id="open-btn">
-            <div class="floral-seal-design">
-              <!-- Flower petals arranged in circle -->
-              <div
-                class="floral-petal"
-                style="
-                  top: 8%;
-                  left: 50%;
-                  transform: translate(-50%, -50%) rotate(0deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 18%;
-                  left: 78%;
-                  transform: translate(-50%, -50%) rotate(45deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 50%;
-                  left: 88%;
-                  transform: translate(-50%, -50%) rotate(90deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 82%;
-                  left: 78%;
-                  transform: translate(-50%, -50%) rotate(135deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 92%;
-                  left: 50%;
-                  transform: translate(-50%, -50%) rotate(180deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 82%;
-                  left: 22%;
-                  transform: translate(-50%, -50%) rotate(225deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 50%;
-                  left: 12%;
-                  transform: translate(-50%, -50%) rotate(270deg);
-                "
-              ></div>
-              <div
-                class="floral-petal"
-                style="
-                  top: 18%;
-                  left: 22%;
-                  transform: translate(-50%, -50%) rotate(315deg);
-                "
-              ></div>
-            </div>
-            <div class="seal-content">
-              <span class="seal-letter"
-                >OPEN<br />
-                INVITATION</span
-              >
-              <div class="seal-subtitle">Click Here</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p
-        class="text-center mt-8 text-[#D4AF37] text-lg font-display"
-        id="envelope-subtitle"
-        data-translate="envelope_subtitle"
-      >
-        Click the seal to open
-      </p>
-      <p
-        class="text-center mt-2 text-[#F4E4BC]/60 text-sm"
-        id="click-hint"
-        data-translate="click_hint"
-      >
-        👆 Click to open your invitation
-      </p>
-    </section>
-    <!-- Main Invitation Content (Hidden Initially) -->
-    <div id="invitation-content" class="hidden h-full overflow-y-auto">
-      <!-- Hero Section -->
-      <section
-        class="min-h-screen flex items-center justify-center px-4 py-20 relative"
-      >
-        <div class="card-3d w-full max-w-3xl">
-          <div
-            class="card-inner bg-gradient-to-b from-[#1a1410] via-[#0f0c08] to-[#0a0806] rounded-lg p-8 sm:p-16 border border-[#D4AF37]/30"
-          >
-            <!-- Ornament Top -->
-            <div class="flex justify-center mb-8">
-              <svg
-                width="150"
-                height="50"
-                viewbox="0 0 150 50"
-                class="text-[#D4AF37] icon-bounce"
-              >
-                <path
-                  d="M10,25 Q40,5 75,25 Q110,45 140,25"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                />
-                <circle cx="75" cy="25" r="5" fill="currentColor" />
-                <path
-                  d="M50,20 L60,15 M90,15 L100,20"
-                  stroke="currentColor"
-                  stroke-width="0.8"
-                />
-                <circle
-                  cx="40"
-                  cy="18"
-                  r="2"
-                  fill="currentColor"
-                  opacity="0.6"
-                />
-                <circle
-                  cx="110"
-                  cy="18"
-                  r="2"
-                  fill="currentColor"
-                  opacity="0.6"
-                />
-              </svg>
-            </div>
-            <p
-              class="text-center text-sm tracking-[0.3em] text-[#D4AF37]/70 mb-8 font-light"
-              id="family-together"
-              data-translate="family_together"
-            >
-              Together with our families
-            </p>
-            <!-- Couple Names -->
-            <div class="text-center mb-8">
-              <h1
-                class="font-display text-5xl sm:text-7xl text-gold mb-4 shimmer"
-                id="groom-name-hero"
-              >
-                Aarav
-              </h1>
-              <div class="flex items-center justify-center gap-6 my-6">
-                <div
-                  class="w-20 h-px bg-gradient-to-r from-transparent to-[#D4AF37]"
-                ></div>
-                <span class="text-2xl text-[#D4AF37] font-display">&amp;</span>
-                <div
-                  class="w-20 h-px bg-gradient-to-l from-transparent to-[#D4AF37]"
-                ></div>
-              </div>
-              <h1
-                class="font-display text-5xl sm:text-7xl text-gold shimmer"
-                id="bride-name-hero"
-              >
-                Ananya
-              </h1>
-            </div>
-            <div class="ornamental-divider my-10"></div>
-            <p
-              class="text-center text-base sm:text-lg text-[#F4E4BC]/80 leading-relaxed px-4"
-              id="honor-presence"
-              data-translate="honor_presence"
-            >
-              Request the honor of your presence at our wedding celebration
-            </p>
-            <!-- Family Details -->
-            <div class="mt-12 grid sm:grid-cols-2 gap-8">
-              <div class="text-center">
-                <p
-                  class="text-xs text-[#D4AF37]/60 mb-2 tracking-wide"
-                  id="groom-parents-label"
-                  data-translate="groom_parents_label"
-                >
-                  Groom's Parents
-                </p>
-                <p class="text-[#F4E4BC]/90 text-sm" id="groom-parents">
-                  Mr. Rajesh &amp; Mrs. Sunita Sharma
-                </p>
-              </div>
-              <div class="text-center">
-                <p
-                  class="text-xs text-[#D4AF37]/60 mb-2 tracking-wide"
-                  id="bride-parents-label"
-                  data-translate="bride_parents_label"
-                >
-                  Bride's Parents
-                </p>
-                <p class="text-[#F4E4BC]/90 text-sm" id="bride-parents">
-                  Mr. Vikram &amp; Mrs. Kavita Verma
-                </p>
-              </div>
-            </div>
-            <!-- Bottom Ornament -->
-            <div class="flex justify-center mt-12">
-              <svg
-                width="100"
-                height="30"
-                viewbox="0 0 100 30"
-                class="text-[#D4AF37]"
-              >
-                <circle
-                  cx="50"
-                  cy="15"
-                  r="10"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                />
-                <circle cx="50" cy="15" r="4" fill="currentColor" />
-                <path
-                  d="M0,15 L35,15 M65,15 L100,15"
-                  stroke="currentColor"
-                  stroke-width="0.5"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Save The Date Section with Countdown -->
-      <section class="py-20 px-4 scroll-reveal">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-12">
-            <h2
-              class="font-heading text-3xl sm:text-4xl text-gold mb-4"
-              id="save-date-heading"
-              data-translate="save_date_heading"
-            >
-              Save The Date
-            </h2>
-            <p
-              class="font-display text-4xl sm:text-5xl text-[#F4E4BC] mb-2"
-              id="wedding-date-display"
-            >
-              12th December 2026
-            </p>
-            <div class="ornamental-divider w-32 mx-auto mt-6"></div>
-          </div>
-          <!-- Live Countdown -->
-          <div class="mt-16">
-            <h3
-              class="text-center font-display text-2xl sm:text-3xl text-gold mb-10"
-              id="countdown-title"
-              data-translate="countdown_title"
-            >
-              Counting Down To Forever
-            </h3>
-            <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-3xl mx-auto">
-              <div class="countdown-box rounded-lg p-4 sm:p-8">
-                <div
-                  class="font-display text-4xl sm:text-6xl text-gold mb-2"
-                  id="countdown-days"
-                >
-                  00
-                </div>
-                <div
-                  class="text-xs sm:text-sm text-[#F4E4BC]/70"
-                  id="days-label"
-                  data-translate="days_label"
-                >
-                  Days
-                </div>
-              </div>
-              <div class="countdown-box rounded-lg p-4 sm:p-8">
-                <div
-                  class="font-display text-4xl sm:text-6xl text-gold mb-2"
-                  id="countdown-hours"
-                >
-                  00
-                </div>
-                <div
-                  class="text-xs sm:text-sm text-[#F4E4BC]/70"
-                  id="hours-label"
-                  data-translate="hours_label"
-                >
-                  Hours
-                </div>
-              </div>
-              <div class="countdown-box rounded-lg p-4 sm:p-8">
-                <div
-                  class="font-display text-4xl sm:text-6xl text-gold mb-2"
-                  id="countdown-minutes"
-                >
-                  00
-                </div>
-                <div
-                  class="text-xs sm:text-sm text-[#F4E4BC]/70"
-                  id="minutes-label"
-                  data-translate="minutes_label"
-                >
-                  Minutes
-                </div>
-              </div>
-              <div class="countdown-box rounded-lg p-4 sm:p-8">
-                <div
-                  class="font-display text-4xl sm:text-6xl text-gold mb-2"
-                  id="countdown-seconds"
-                >
-                  00
-                </div>
-                <div
-                  class="text-xs sm:text-sm text-[#F4E4BC]/70"
-                  id="seconds-label"
-                  data-translate="seconds_label"
-                >
-                  Seconds
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Event Details Section -->
-      <section
-        class="py-20 px-4 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-transparent scroll-reveal"
-      >
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16">
-            <h2
-              class="font-heading text-3xl sm:text-4xl text-gold mb-4"
-              id="event-details-heading"
-              data-translate="event_details_heading"
-            >
-              Event Details
-            </h2>
-            <div class="ornamental-divider w-32 mx-auto"></div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <!-- Wedding Ceremony Card with QR Code -->
-            <div class="card-3d stagger-item">
-              <div
-                class="card-inner bg-gradient-to-br from-[#1a1410] to-[#0f0c08] rounded-lg p-8 border border-[#D4AF37]/30"
-              >
-                <div class="text-center mb-6">
-                  <svg
-                    width="60"
-                    height="60"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1"
-                    class="mx-auto mb-4 icon-bounce"
-                  >
-                    <path
-                      d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
-                    />
-                    <path d="M12 8v8M8 12h8" />
-                  </svg>
-                  <h3
-                    class="font-heading text-2xl text-gold mb-2"
-                    id="ceremony-heading"
-                    data-translate="ceremony_heading"
-                  >
-                    Wedding Ceremony
-                  </h3>
-                </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                  <!-- Left: Venue Details -->
-                  <div class="space-y-3 text-[#F4E4BC]/80">
-                    <div class="flex items-center gap-3">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewbox="0 0 24 24"
-                        fill="none"
-                        stroke="#D4AF37"
-                        stroke-width="1.5"
-                      >
-                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                        <path d="M16 2v4M8 2v4M3 10h18" /></svg
-                      ><span id="ceremony-date" class="text-sm"
-                        >12th December 2026</span
-                      >
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewbox="0 0 24 24"
-                        fill="none"
-                        stroke="#D4AF37"
-                        stroke-width="1.5"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M12 6v6l4 2" /></svg
-                      ><span id="ceremony-time" class="text-sm"
-                        >7:00 PM Onwards</span
-                      >
-                    </div>
-                    <div class="flex items-start gap-3">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewbox="0 0 24 24"
-                        fill="none"
-                        stroke="#D4AF37"
-                        stroke-width="1.5"
-                        class="flex-shrink-0 mt-1"
-                      >
-                        <path
-                          d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                        />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                      <div>
-                        <p id="ceremony-venue" class="text-sm">
-                          The Grand Palace Hotel
-                        </p>
-                        <p class="text-xs text-[#D4AF37]/60" id="ceremony-city">
-                          Udaipur
-                        </p>
-                      </div>
-                    </div>
-                    <a
-                      href="https://maps.google.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="mt-4 block text-center py-2.5 border border-[#D4AF37]/40 text-[#D4AF37] rounded-lg hover:bg-[#D4AF37]/10 transition-all text-sm"
-                    >
-                      <span id="map-button" data-translate="map_button"
-                        >View Map Location</span
-                      >
-                    </a>
-                  </div>
-                  <!-- Right: Share & QR Code -->
-                  <div
-                    class="bg-gradient-to-br from-[#2d2418]/50 to-[#1a1410]/50 rounded-lg p-5 border border-[#D4AF37]/20 flex flex-col items-center"
-                  >
-                    <h4
-                      class="text-center font-display text-base text-gold mb-4"
-                      id="share-heading"
-                      data-translate="share_heading"
-                    >
-                      Share Invitation
-                    </h4>
-                    <div class="flex flex-col items-center gap-3 w-full">
-                      <button
-                        id="copy-link-btn"
-                        class="w-full py-2.5 bg-gradient-to-r from-[#D4AF37]/20 to-[#FFD700]/20 border border-[#D4AF37]/40 text-[#F4E4BC] rounded-lg hover:bg-[#D4AF37]/30 transition-all font-medium text-sm"
-                      >
-                        <span id="copy-btn-text" data-translate="copy_link"
-                          >📋 Copy Link</span
-                        >
-                      </button>
-                      <div
-                        id="copy-confirmation"
-                        class="hidden text-[#D4AF37] text-sm font-medium"
-                      >
-                        <span data-translate="link_copied">✓ Link copied!</span>
-                      </div>
-                      <div class="mt-1">
-                        <img
-                          id="qr-code"
-                          alt="QR Code"
-                          class="mx-auto bg-white rounded-lg p-2 shadow-lg"
-                          width="140"
-                          height="140"
-                          onerror="this.style.display='none'; this.alt='QR code failed to load';"
-                        />
-                        <p
-                          class="text-center text-xs text-[#F4E4BC]/60 mt-2"
-                          id="scan-text"
-                          data-translate="scan_text"
-                        >
-                          Scan to open
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Dinner & Reception Card -->
-            <div class="card-3d stagger-item">
-              <div
-                class="card-inner bg-gradient-to-br from-[#1a1410] to-[#0f0c08] rounded-lg p-8 border border-[#D4AF37]/30"
-              >
-                <div class="text-center mb-6">
-                  <svg
-                    width="60"
-                    height="60"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1"
-                    class="mx-auto mb-4 icon-bounce"
-                  >
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                  <h3
-                    class="font-heading text-2xl text-gold mb-2"
-                    id="reception-heading"
-                    data-translate="reception_heading"
-                  >
-                    Dinner &amp; Reception
-                  </h3>
-                </div>
-                <div class="space-y-3 text-[#F4E4BC]/80 mb-6">
-                  <div class="flex items-center gap-3">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewbox="0 0 24 24"
-                      fill="none"
-                      stroke="#D4AF37"
-                      stroke-width="1.5"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 6v6l4 2" /></svg
-                    ><span id="reception-time">9:00 PM Onwards</span>
-                  </div>
-                </div>
-                <div
-                  class="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-6 text-center"
-                >
-                  <p
-                    class="text-[#F4E4BC]/90 leading-relaxed"
-                    id="reception-text"
-                    data-translate="reception_text"
-                  >
-                    Join us for an evening of music, dinner, and joy.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- FAQs Section -->
-      <section class="py-20 px-4 scroll-reveal">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-16">
-            <h2
-              class="font-heading text-3xl sm:text-4xl text-gold mb-4"
-              id="faq-heading"
-              data-translate="faq_heading"
-            >
-              Frequently Asked Questions
-            </h2>
-            <div class="ornamental-divider w-32 mx-auto"></div>
-          </div>
-          <div class="space-y-4">
-            <!-- Dress Code -->
-            <div class="faq-item stagger-item" data-faq="1">
-              <div class="faq-question">
-                <div class="flex items-center gap-4">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1.5"
-                    class="flex-shrink-0"
-                  >
-                    <path
-                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                    />
-                  </svg>
-                  <h3
-                    class="font-display text-lg text-[#F4E4BC]"
-                    id="dress-code-q"
-                    data-translate="dress_code_q"
-                  >
-                    What is the dress code?
-                  </h3>
-                </div>
-                <svg
-                  class="faq-icon"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              <div class="faq-answer">
-                <p
-                  class="text-[#F4E4BC]/80 leading-relaxed"
-                  id="dress-code-a"
-                  data-translate="dress_code_a"
-                >
-                  Traditional Indian attire is preferred. Men can wear Sherwani,
-                  Kurta, or formal suits. Women are encouraged to wear Sarees,
-                  Lehengas, or Salwar Kameez in vibrant colors.
-                </p>
-              </div>
-            </div>
-            <!-- Parking -->
-            <div class="faq-item stagger-item" data-faq="2">
-              <div class="faq-question">
-                <div class="flex items-center gap-4">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1.5"
-                    class="flex-shrink-0"
-                  >
-                    <rect x="5" y="11" width="14" height="10" rx="2" />
-                    <circle cx="9" cy="16" r="1" />
-                    <circle cx="15" cy="16" r="1" />
-                    <path d="M5 11V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5" />
-                  </svg>
-                  <h3
-                    class="font-display text-lg text-[#F4E4BC]"
-                    id="parking-q"
-                    data-translate="parking_q"
-                  >
-                    Is parking available?
-                  </h3>
-                </div>
-                <svg
-                  class="faq-icon"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              <div class="faq-answer">
-                <p
-                  class="text-[#F4E4BC]/80 leading-relaxed"
-                  id="parking-a"
-                  data-translate="parking_a"
-                >
-                  Yes! The Grand Palace Hotel offers complimentary valet parking
-                  and a large parking area for all guests. Additional street
-                  parking is available nearby.
-                </p>
-              </div>
-            </div>
-            <!-- Accommodation -->
-            <div class="faq-item stagger-item" data-faq="3">
-              <div class="faq-question">
-                <div class="flex items-center gap-4">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1.5"
-                    class="flex-shrink-0"
-                  >
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    <polyline points="9 22 9 12 15 12 15 22" />
-                  </svg>
-                  <h3
-                    class="font-display text-lg text-[#F4E4BC]"
-                    id="accommodation-q"
-                    data-translate="accommodation_q"
-                  >
-                    Where can I stay nearby?
-                  </h3>
-                </div>
-                <svg
-                  class="faq-icon"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              <div class="faq-answer">
-                <div class="text-[#F4E4BC]/80 leading-relaxed space-y-3">
-                  <p
-                    id="accommodation-intro"
-                    data-translate="accommodation_intro"
-                  >
-                    We've arranged special discounts for our guests:
-                  </p>
-                  <div
-                    class="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-4"
-                  >
-                    <p
-                      class="font-display text-gold mb-2"
-                      id="venue-hotel"
-                      data-translate="venue_hotel"
-                    >
-                      📍 The Grand Palace Hotel (Venue)
-                    </p>
-                    <p
-                      class="text-sm"
-                      id="venue-discount"
-                      data-translate="venue_discount"
-                    >
-                      Special rate: 20% off for wedding guests
-                    </p>
-                  </div>
-                  <p id="nearby-hotels" data-translate="nearby_hotels">
-                    Other hotels within 2km radius:
-                  </p>
-                  <ul class="space-y-2 ml-4">
-                    <li>• Lake View Resort (1.2km)</li>
-                    <li>• Royal Heritage Hotel (1.5km)</li>
-                    <li>• Udaipur Inn (1.8km)</li>
-                    <li>• City Palace Suites (2km)</li>
-                  </ul>
-                  <p
-                    class="text-sm text-[#D4AF37]/70 italic"
-                    id="booking-note"
-                    data-translate="booking_note"
-                  >
-                    Contact us for booking assistance and discount codes
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- Contact -->
-            <div class="faq-item stagger-item" data-faq="4">
-              <div class="faq-question">
-                <div class="flex items-center gap-4">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="1.5"
-                    class="flex-shrink-0"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                    />
-                  </svg>
-                  <h3
-                    class="font-display text-lg text-[#F4E4BC]"
-                    id="contact-q"
-                    data-translate="contact_q"
-                  >
-                    Who should I contact for questions?
-                  </h3>
-                </div>
-                <svg
-                  class="faq-icon"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              <div class="faq-answer">
-                <div class="text-[#F4E4BC]/80 leading-relaxed space-y-3">
-                  <p id="contact-intro" data-translate="contact_intro">
-                    For any questions or assistance, please contact:
-                  </p>
-                  <div
-                    class="bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-lg p-4"
-                  >
-                    <p class="font-display text-gold mb-1" id="contact-person">
-                      Rajesh Sharma
-                    </p>
-                    <p class="text-sm flex items-center gap-2">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewbox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                        /></svg
-                      ><span id="contact-phone">+91 98765 43210</span>
-                    </p>
-                  </div>
-                  <p
-                    class="text-sm text-[#D4AF37]/70"
-                    id="contact-available"
-                    data-translate="contact_available"
-                  >
-                    Available for calls 9 AM - 9 PM
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- RSVP Section -->
-      <section class="py-20 px-4 scroll-reveal">
-        <div class="max-w-2xl mx-auto">
-          <div class="text-center mb-12">
-            <h2
-              class="font-heading text-3xl sm:text-4xl text-gold mb-4"
-              id="rsvp-heading"
-              data-translate="rsvp_heading"
-            >
-              RSVP
-            </h2>
-            <p
-              class="text-[#F4E4BC]/70"
-              id="rsvp-subtitle"
-              data-translate="rsvp_subtitle"
-            >
-              Please confirm your presence by
-              <span id="rsvp-deadline">Nov 1st</span>
-            </p>
-            <div class="ornamental-divider w-32 mx-auto mt-6"></div>
-          </div>
-          <div class="card-3d">
-            <div
-              class="card-inner bg-gradient-to-br from-[#1a1410] to-[#0f0c08] rounded-lg p-8 sm:p-12 border border-[#D4AF37]/30"
-            >
-              <form id="rsvp-form" class="space-y-6">
-                <!-- Full Name -->
-                <div>
-                  <label
-                    for="guest-name"
-                    class="block text-sm text-[#F4E4BC]/80 mb-2"
-                    id="name-label"
-                    data-translate="name_label"
-                    >Full Name / Guest Name</label
-                  >
-                  <input
-                    type="text"
-                    id="guest-name"
-                    required
-                    class="w-full input-luxury rounded-lg px-4 py-3 text-[#F4E4BC] placeholder-[#F4E4BC]/30"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                <!-- Total Guests -->
-                <div>
-                  <label
-                    for="total-guests"
-                    class="block text-sm text-[#F4E4BC]/80 mb-2"
-                    id="guests-label"
-                    data-translate="guests_label"
-                    >Total Guests</label
-                  >
-                  <select
-                    id="total-guests"
-                    required
-                    class="w-full input-luxury rounded-lg px-4 py-3 text-[#F4E4BC] bg-transparent cursor-pointer"
-                  >
-                    <option value="" class="bg-[#1a1410]">
-                      Select number of guests
-                    </option>
-                    <option value="1" class="bg-[#1a1410]">1 Guest</option>
-                    <option value="2" class="bg-[#1a1410]">2 Guests</option>
-                    <option value="3" class="bg-[#1a1410]">3 Guests</option>
-                    <option value="4" class="bg-[#1a1410]">4 Guests</option>
-                    <option value="5" class="bg-[#1a1410]">5 Guests</option>
-                    <option value="6" class="bg-[#1a1410]">6+ Guests</option>
-                  </select>
-                </div>
-                <!-- Attendance Probability -->
-                <div>
-                  <label
-                    for="attendance-slider"
-                    class="block text-sm text-[#F4E4BC]/80 mb-2"
-                    id="probability-label"
-                    data-translate="probability_label"
-                    >Attendance Probability</label
-                  >
-                  <div class="flex items-center gap-4">
-                    <input
-                      type="range"
-                      id="attendance-slider"
-                      min="50"
-                      max="100"
-                      step="25"
-                      value="100"
-                      class="slider flex-1"
-                    />
-                    <span
-                      id="attendance-value"
-                      class="text-gold text-xl font-display min-w-[60px] text-right"
-                      >100%</span
-                    >
-                  </div>
-                  <div
-                    class="flex justify-between text-xs text-[#D4AF37]/50 mt-2"
-                  >
-                    <span>50%</span> <span>75%</span> <span>100%</span>
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  id="submit-btn"
-                  class="w-full btn-gold text-[#0a0806] font-heading text-lg py-4 rounded-lg tracking-wide"
-                >
-                  <span id="btn-text" data-translate="send_confirmation"
-                    >Send Confirmation</span
-                  >
-                  <span id="btn-loading" class="hidden" data-translate="sending"
-                    >Sending...</span
-                  >
-                </button>
-                <div id="form-success" class="hidden text-center py-6">
-                  <svg
-                    width="60"
-                    height="60"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="#D4AF37"
-                    stroke-width="2"
-                    class="mx-auto mb-4"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                  <p
-                    class="text-[#F4E4BC] text-lg"
-                    id="success-message"
-                    data-translate="success_message"
-                  >
-                    Thank you! Your RSVP has been received.
-                  </p>
-                </div>
-                <div id="form-error" class="hidden text-center py-4">
-                  <p
-                    class="text-red-400"
-                    id="error-message"
-                    data-translate="error_message"
-                  >
-                    Something went wrong. Please try again.
-                  </p>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- Guest Count Display -->
-          <div class="mt-12 text-center">
-            <p
-              class="text-[#D4AF37]/60 mb-3"
-              id="responses-label"
-              data-translate="responses_label"
-            >
-              Total Responses
-            </p>
-            <div class="font-display text-5xl text-gold" id="total-responses">
-              0
-            </div>
-          </div>
-          <div
-            id="limit-warning"
-            class="hidden mt-6 p-4 border border-yellow-500/30 rounded-lg bg-yellow-500/10 text-center"
-          >
-            <p class="text-yellow-400" data-translate="limit_warning">
-              Maximum response limit reached (999)
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- Footer -->
-      <footer class="py-12 px-4 border-t border-[#D4AF37]/10">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="flex justify-center mb-6">
-            <svg
-              width="120"
-              height="40"
-              viewbox="0 0 120 40"
-              class="text-[#D4AF37]"
-            >
-              <path
-                d="M10,20 Q35,5 60,20 Q85,35 110,20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="0.8"
-              />
-              <circle cx="60" cy="20" r="4" fill="currentColor" />
-            </svg>
-          </div>
-          <p class="font-display text-2xl text-gold mb-3" id="footer-names">
-            Aarav &amp; Ananya
-          </p>
-          <p
-            class="text-sm text-[#F4E4BC]/60"
-            id="footer-text"
-            data-translate="footer_text"
-          >
-            We can't wait to celebrate with you
-          </p>
-          <p class="text-xs text-[#D4AF37]/40 mt-6">
-            © 2026 Wedding Celebration
-          </p>
-        </div>
-      </footer>
+
+    <div class="controls" id="navBar" style="display:none;">
+        <button id="prev" onclick="navigate(-1)" disabled>BACK</button>
+        <span class="page-info" id="pCount">PAGE 1 / 4</span>
+        <button id="next" onclick="navigate(1)">NEXT</button>
     </div>
-    <script>
-      // Translation Data
-      const translations = {
-        en: {
-          envelope_subtitle: "Click the seal to open",
-          click_hint: "👆 Click to open your invitation",
-          family_together: "Together with our families",
-          honor_presence:
-            "Request the honor of your presence at our wedding celebration",
-          groom_parents_label: "Groom's Parents",
-          bride_parents_label: "Bride's Parents",
-          save_date_heading: "Save The Date",
-          countdown_title: "Counting Down To Forever",
-          days_label: "Days",
-          hours_label: "Hours",
-          minutes_label: "Minutes",
-          seconds_label: "Seconds",
-          event_details_heading: "Event Details",
-          ceremony_heading: "Wedding Ceremony",
-          reception_heading: "Dinner & Reception",
-          map_button: "View Map Location",
-          share_heading: "Share Invitation",
-          copy_link: "📋 Copy Link",
-          link_copied: "✓ Link copied!",
-          scan_text: "Scan to open",
-          reception_text: "Join us for an evening of music, dinner, and joy.",
-          faq_heading: "Frequently Asked Questions",
-          dress_code_q: "What is the dress code?",
-          dress_code_a:
-            "Traditional Indian attire is preferred. Men can wear Sherwani, Kurta, or formal suits. Women are encouraged to wear Sarees, Lehengas, or Salwar Kameez in vibrant colors.",
-          parking_q: "Is parking available?",
-          parking_a:
-            "Yes! The Grand Palace Hotel offers complimentary valet parking and a large parking area for all guests. Additional street parking is available nearby.",
-          accommodation_q: "Where can I stay nearby?",
-          accommodation_intro:
-            "We've arranged special discounts for our guests:",
-          venue_hotel: "📍 The Grand Palace Hotel (Venue)",
-          venue_discount: "Special rate: 20% off for wedding guests",
-          nearby_hotels: "Other hotels within 2km radius:",
-          booking_note: "Contact us for booking assistance and discount codes",
-          contact_q: "Who should I contact for questions?",
-          contact_intro: "For any questions or assistance, please contact:",
-          contact_available: "Available for calls 9 AM - 9 PM",
-          rsvp_heading: "RSVP",
-          rsvp_subtitle: "Please confirm your presence by",
-          name_label: "Full Name / Guest Name",
-          guests_label: "Total Guests",
-          probability_label: "Attendance Probability",
-          send_confirmation: "Send Confirmation",
-          sending: "Sending...",
-          success_message: "Thank you! Your RSVP has been received.",
-          error_message: "Something went wrong. Please try again.",
-          responses_label: "Total Responses",
-          limit_warning: "Maximum response limit reached (999)",
-          footer_text: "We can't wait to celebrate with you",
-        },
-        hi: {
-          envelope_subtitle: "खोलने के लिए सील पर क्लिक करें",
-          click_hint: "👆 अपना निमंत्रण खोलने के लिए क्लिक करें",
-          family_together: "हमारे परिवारों के साथ",
-          honor_presence:
-            "हमारे विवाह समारोह में आपकी उपस्थिति का सम्मान चाहते हैं",
-          groom_parents_label: "वर के माता-पिता",
-          bride_parents_label: "वधू के माता-पिता",
-          save_date_heading: "तिथि सहेजें",
-          countdown_title: "हमेशा के लिए उलटी गिनती",
-          days_label: "दिन",
-          hours_label: "घंटे",
-          minutes_label: "मिनट",
-          seconds_label: "सेकंड",
-          event_details_heading: "कार्यक्रम विवरण",
-          ceremony_heading: "विवाह समारोह",
-          reception_heading: "रात्रि भोज एवं स्वागत",
-          map_button: "मानचित्र स्थान देखें",
-          share_heading: "निमंत्रण साझा करें",
-          copy_link: "📋 लिंक कॉपी करें",
-          link_copied: "✓ लिंक कॉपी हो गया!",
-          scan_text: "खोलने के लिए स्कैन करें",
-          reception_text:
-            "संगीत, रात्रि भोज और आनंद की एक शाम के लिए हमारे साथ जुड़ें।",
-          faq_heading: "अक्सर पूछे जाने वाले प्रश्न",
-          dress_code_q: "ड्रेस कोड क्या है?",
-          dress_code_a:
-            "पारंपरिक भारतीय पोशाक पसंद की जाती है। पुरुष शेरवानी, कुर्ता या औपचारिक सूट पहन सकते हैं। महिलाओं को जीवंत रंगों में साड़ी, लहंगा या सलवार कमीज पहनने के लिए प्रोत्साहित किया जाता है।",
-          parking_q: "क्या पार्किंग उपलब्ध है?",
-          parking_a:
-            "हाँ! द ग्रांड पैलेस होटल सभी मेहमानों के लिए मानार्थ वैलेट पार्किंग और एक बड़ा पार्किंग क्षेत्र प्रदान करता है। पास में अतिरिक्त स्ट्रीट पार्किंग उपलब्ध है।",
-          accommodation_q: "मैं आस-पास कहां रुक सकता हूं?",
-          accommodation_intro:
-            "हमने अपने मेहमानों के लिए विशेष छूट की व्यवस्था की है:",
-          venue_hotel: "📍 द ग्रांड पैलेस होटल (स्थान)",
-          venue_discount: "विशेष दर: विवाह मेहमानों के लिए 20% की छूट",
-          nearby_hotels: "2 किमी त्रिज्या के भीतर अन्य होटल:",
-          booking_note: "बुकिंग सहायता और छूट कोड के लिए हमसे संपर्क करें",
-          contact_q: "प्रश्नों के लिए मुझे किससे संपर्क करना चाहिए?",
-          contact_intro: "किसी भी प्रश्न या सहायता के लिए, कृपया संपर्क करें:",
-          contact_available: "सुबह 9 बजे से रात 9 बजे तक कॉल के लिए उपलब्ध",
-          rsvp_heading: "उपस्थिति पुष्टि",
-          rsvp_subtitle: "कृपया अपनी उपस्थिति की पुष्टि करें",
-          name_label: "पूरा नाम / अतिथि का नाम",
-          guests_label: "कुल मेहमान",
-          probability_label: "उपस्थिति संभावना",
-          send_confirmation: "पुष्टि भेजें",
-          sending: "भेजा जा रहा है...",
-          success_message: "धन्यवाद! आपकी पुष्टि प्राप्त हो गई है।",
-          error_message: "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
-          responses_label: "कुल प्रतिक्रियाएं",
-          limit_warning: "अधिकतम प्रतिक्रिया सीमा पहुंच गई (999)",
-          footer_text: "हम आपके साथ जश्न मनाने के लिए उत्सुक हैं",
-        },
-      };
+</div>
 
-      let currentLanguage = "en";
+<script>
+    // Create Stars
+    const stars = document.getElementById("starfield");
+    for(let i=0; i<70; i++) {
+        let s = document.createElement("div");
+        s.className = "star";
+        s.style.top = Math.random()*100+"%";
+        s.style.left = Math.random()*100+"%";
+        s.style.animationDelay = Math.random()*3+"s";
+        stars.appendChild(s);
+    }
 
-      // Update translations
-      function updateTranslations() {
-        const lang = translations[currentLanguage];
-        document.querySelectorAll("[data-translate]").forEach((el) => {
-          const key = el.getAttribute("data-translate");
-          if (lang[key]) {
-            el.textContent = lang[key];
-          }
-        });
+    let current = 1;
+    let typing = false;
 
-        // Update RSVP subtitle with deadline
-        const deadline = document.getElementById("rsvp-deadline").textContent;
-        const subtitleEl = document.getElementById("rsvp-subtitle");
-        if (currentLanguage === "hi") {
-          subtitleEl.innerHTML = `कृपया अपनी उपस्थिति की पुष्टि करें <span id="rsvp-deadline">${deadline}</span> तक`;
-        } else {
-          subtitleEl.innerHTML = `Please confirm your presence by <span id="rsvp-deadline">${deadline}</span>`;
+    const data = {
+        1: `To my most beloved person,
+
+I see how much you carry. I see the responsibilities on your shoulders. You are not alone in this. Providing is your duty by Allah's command, but it is not a load you carry alone.
+
+A truly successful marriage leads a man and a woman to Jannah together. It's when two people choose deen over ego. I will always be there in your stress, your growth, and your victories.`,
+
+        2: `You once said only arranged marriages are successful. But success is not how it starts; it is how it is lived.
+
+Like Khadijah (RA) stood beside Prophet Muhammad ﷺ — not just as a wife, but as comfort and strength. When he came home worried, she didn't increase his fear; she reminded him of his goodness.
+
+I will support you emotionally, spiritually, and with my duas every single day.`,
+
+        3: `My husband is always great and brilliant, with a beautiful smile on his handsome face. He is No.1. Both deen and dunya fikr wala.
+
+My beloved husband Adnan Ahmad... I don't want anything from you — nothing, just you. Wallahi, I love you beyond any imagination.
+
+I am with you. Always.
+— From Sumyya`
+    };
+
+    function initSession(){
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("mainUI").style.display = "flex";
+        document.getElementById("navBar").style.display = "flex";
+        runTyping(1);
+    }
+
+    function runTyping(p) {
+        if (!data[p]) return;
+        typing = true;
+        let target = document.getElementById("txt" + p);
+        let csr = document.getElementById("c" + p);
+        let i = 0;
+        let str = data[p];
+        
+        target.innerHTML = "";
+        csr.style.display = "inline-block";
+
+        function t() {
+            if(i < str.length) {
+                target.innerHTML += str.charAt(i);
+                i++;
+                document.getElementById("scrollBox").scrollTop = document.getElementById("scrollBox").scrollHeight;
+                setTimeout(t, 25);
+            } else {
+                typing = false;
+                csr.style.display = "none";
+            }
         }
-      }
+        t();
+    }
 
-      // Language selector
-      document
-        .getElementById("language-select")
-        .addEventListener("change", (e) => {
-          currentLanguage = e.target.value;
-          updateTranslations();
-        });
+    function navigate(d) {
+        if (typing) return;
+        document.getElementById("p" + current).classList.remove("active");
+        current += d;
+        document.getElementById("p" + current).classList.add("active");
 
-      // Slider value display
-      const slider = document.getElementById("attendance-slider");
-      const valueDisplay = document.getElementById("attendance-value");
-      slider.addEventListener("input", (e) => {
-        valueDisplay.textContent = e.target.value + "%";
-      });
+        document.getElementById("prev").disabled = (current === 1);
+        document.getElementById("next").style.visibility = (current === 4) ? "hidden" : "visible";
+        document.getElementById("pCount").innerText = `PAGE ${current} / 4`;
 
-      // FAQ Accordion
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        const question = item.querySelector(".faq-question");
-        question.addEventListener("click", () => {
-          const isActive = item.classList.contains("active");
-
-          // Close all FAQs
-          document.querySelectorAll(".faq-item").forEach((faq) => {
-            faq.classList.remove("active");
-          });
-
-          // Open clicked FAQ if it wasn't active
-          if (!isActive) {
-            item.classList.add("active");
-          }
-        });
-      });
-
-      // Scroll Reveal Animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-          }
-        });
-      }, observerOptions);
-
-      // Observe all scroll-reveal elements
-      document.querySelectorAll(".scroll-reveal").forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Config
-      const defaultConfig = {
-        groom_name: "Aarav",
-        bride_name: "Ananya",
-        groom_father: "Mr. Rajesh",
-        groom_mother: "Mrs. Sunita Sharma",
-        bride_father: "Mr. Vikram",
-        bride_mother: "Mrs. Kavita Verma",
-        wedding_date: "12th December 2026",
-        wedding_time: "7:00 PM Onwards",
-        reception_time: "9:00 PM Onwards",
-        venue_name: "The Grand Palace Hotel",
-        venue_city: "Udaipur",
-        rsvp_deadline: "Nov 1st",
-        contact_name: "Rajesh Sharma",
-        contact_phone: "+91 98765 43210",
-        background_color: "#0a0806",
-        surface_color: "#1a1410",
-        text_color: "#F4E4BC",
-        primary_action: "#D4AF37",
-        secondary_action: "#FFD700",
-      };
-
-      let config = { ...defaultConfig };
-      let rsvpData = [];
-      let currentRecordCount = 0;
-
-      // Envelope opening animation
-      const openBtn = document.getElementById("open-btn");
-      const envelopeSection = document.getElementById("envelope-section");
-      const invitationContent = document.getElementById("invitation-content");
-      const envelopeFlap = document.getElementById("envelope-flap");
-
-      openBtn.addEventListener("click", () => {
-        envelopeFlap.classList.add("open");
-        document.querySelector(".envelope-body").classList.add("opening");
-
-        setTimeout(() => {
-          envelopeSection.style.display = "none";
-          invitationContent.classList.remove("hidden");
-          invitationContent.classList.add("fade-in");
-
-          // Re-observe elements after content is visible
-          setTimeout(() => {
-            document.querySelectorAll(".scroll-reveal").forEach((el) => {
-              observer.observe(el);
-            });
-          }, 100);
-        }, 2500);
-      });
-
-      // Countdown Timer
-      function updateCountdown() {
-        const weddingDateStr =
-          config.wedding_date || defaultConfig.wedding_date;
-        const dateStr = weddingDateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
-        const targetDate = new Date(dateStr + " 19:00:00");
-        const now = new Date();
-        const diff = targetDate - now;
-
-        if (diff <= 0) {
-          document.getElementById("countdown-days").textContent = "00";
-          document.getElementById("countdown-hours").textContent = "00";
-          document.getElementById("countdown-minutes").textContent = "00";
-          document.getElementById("countdown-seconds").textContent = "00";
-          return;
+        if (data[current] && document.getElementById("txt" + current).innerHTML === "") {
+            runTyping(current);
         }
+    }
+</script>
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown-days").textContent = String(
-          days
-        ).padStart(2, "0");
-        document.getElementById("countdown-hours").textContent = String(
-          hours
-        ).padStart(2, "0");
-        document.getElementById("countdown-minutes").textContent = String(
-          minutes
-        ).padStart(2, "0");
-        document.getElementById("countdown-seconds").textContent = String(
-          seconds
-        ).padStart(2, "0");
-      }
-
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      // Data Handler
-      const dataHandler = {
-        onDataChanged(data) {
-          rsvpData = data;
-          currentRecordCount = data.length;
-
-          document.getElementById("total-responses").textContent = data.length;
-
-          const limitWarning = document.getElementById("limit-warning");
-          if (currentRecordCount >= 999) {
-            limitWarning.classList.remove("hidden");
-          } else {
-            limitWarning.classList.add("hidden");
-          }
-        },
-      };
-
-      // Form Submission
-      document
-        .getElementById("rsvp-form")
-        .addEventListener("submit", async (e) => {
-          e.preventDefault();
-
-          if (currentRecordCount >= 999) {
-            const errorEl = document.getElementById("form-error");
-            errorEl.classList.remove("hidden");
-            return;
-          }
-
-          const submitBtn = document.getElementById("submit-btn");
-          const btnText = document.getElementById("btn-text");
-          const btnLoading = document.getElementById("btn-loading");
-          const formSuccess = document.getElementById("form-success");
-          const formError = document.getElementById("form-error");
-
-          submitBtn.disabled = true;
-          btnText.classList.add("hidden");
-          btnLoading.classList.remove("hidden");
-          formError.classList.add("hidden");
-
-          const guestName = document.getElementById("guest-name").value;
-          const totalGuests = parseInt(
-            document.getElementById("total-guests").value
-          );
-          const attendanceProbability =
-            document.getElementById("attendance-slider").value + "%";
-
-          const result = await window.dataSdk.create({
-            guest_name: guestName,
-            total_guests: totalGuests,
-            attendance_probability: attendanceProbability,
-            submitted_at: new Date().toISOString(),
-          });
-
-          submitBtn.disabled = false;
-          btnText.classList.remove("hidden");
-          btnLoading.classList.add("hidden");
-
-          if (result.isOk) {
-            document.getElementById("rsvp-form").reset();
-            slider.value = 100;
-            valueDisplay.textContent = "100%";
-            formSuccess.classList.remove("hidden");
-            setTimeout(() => {
-              formSuccess.classList.add("hidden");
-            }, 5000);
-          } else {
-            formError.classList.remove("hidden");
-          }
-        });
-
-      // Music Toggle
-      const musicToggle = document.getElementById("music-toggle");
-      const musicIconPlay = document.getElementById("music-icon-play");
-      const musicIconPause = document.getElementById("music-icon-pause");
-      let musicPlaying = false;
-
-      musicToggle.addEventListener("click", () => {
-        musicPlaying = !musicPlaying;
-        if (musicPlaying) {
-          musicIconPlay.classList.add("hidden");
-          musicIconPause.classList.remove("hidden");
-        } else {
-          musicIconPlay.classList.remove("hidden");
-          musicIconPause.classList.add("hidden");
-        }
-      });
-
-      // Element SDK
-      async function onConfigChange(cfg) {
-        const groomName = cfg.groom_name || defaultConfig.groom_name;
-        const brideName = cfg.bride_name || defaultConfig.bride_name;
-        const groomFather = cfg.groom_father || defaultConfig.groom_father;
-        const groomMother = cfg.groom_mother || defaultConfig.groom_mother;
-        const brideFather = cfg.bride_father || defaultConfig.bride_father;
-        const brideMother = cfg.bride_mother || defaultConfig.bride_mother;
-        const weddingDate = cfg.wedding_date || defaultConfig.wedding_date;
-        const weddingTime = cfg.wedding_time || defaultConfig.wedding_time;
-        const receptionTime =
-          cfg.reception_time || defaultConfig.reception_time;
-        const venueName = cfg.venue_name || defaultConfig.venue_name;
-        const venueCity = cfg.venue_city || defaultConfig.venue_city;
-        const rsvpDeadline = cfg.rsvp_deadline || defaultConfig.rsvp_deadline;
-        const contactName = cfg.contact_name || defaultConfig.contact_name;
-        const contactPhone = cfg.contact_phone || defaultConfig.contact_phone;
-        const bgColor = cfg.background_color || defaultConfig.background_color;
-
-        document.getElementById("groom-name-hero").textContent = groomName;
-        document.getElementById("bride-name-hero").textContent = brideName;
-        document.getElementById(
-          "groom-parents"
-        ).textContent = `${groomFather} & ${groomMother}`;
-        document.getElementById(
-          "bride-parents"
-        ).textContent = `${brideFather} & ${brideMother}`;
-        document.getElementById("wedding-date-display").textContent =
-          weddingDate;
-        document.getElementById("ceremony-date").textContent = weddingDate;
-        document.getElementById("ceremony-time").textContent = weddingTime;
-        document.getElementById("reception-time").textContent = receptionTime;
-        document.getElementById("ceremony-venue").textContent = venueName;
-        document.getElementById("ceremony-city").textContent = venueCity;
-        document.getElementById("rsvp-deadline").textContent = rsvpDeadline;
-        document.getElementById("contact-person").textContent = contactName;
-        document.getElementById("contact-phone").textContent = contactPhone;
-        document.getElementById(
-          "footer-names"
-        ).textContent = `${groomName} & ${brideName}`;
-
-        document.body.style.backgroundColor = bgColor;
-
-        updateCountdown();
-      }
-
-      function mapToCapabilities(cfg) {
-        return {
-          recolorables: [
-            {
-              get: () => cfg.background_color || defaultConfig.background_color,
-              set: (v) => {
-                cfg.background_color = v;
-                window.elementSdk.setConfig({ background_color: v });
-              },
-            },
-            {
-              get: () => cfg.surface_color || defaultConfig.surface_color,
-              set: (v) => {
-                cfg.surface_color = v;
-                window.elementSdk.setConfig({ surface_color: v });
-              },
-            },
-            {
-              get: () => cfg.text_color || defaultConfig.text_color,
-              set: (v) => {
-                cfg.text_color = v;
-                window.elementSdk.setConfig({ text_color: v });
-              },
-            },
-            {
-              get: () => cfg.primary_action || defaultConfig.primary_action,
-              set: (v) => {
-                cfg.primary_action = v;
-                window.elementSdk.setConfig({ primary_action: v });
-              },
-            },
-            {
-              get: () => cfg.secondary_action || defaultConfig.secondary_action,
-              set: (v) => {
-                cfg.secondary_action = v;
-                window.elementSdk.setConfig({ secondary_action: v });
-              },
-            },
-          ],
-          borderables: [],
-          fontEditable: undefined,
-          fontSizeable: undefined,
-        };
-      }
-
-      function mapToEditPanelValues(cfg) {
-        return new Map([
-          ["groom_name", cfg.groom_name || defaultConfig.groom_name],
-          ["bride_name", cfg.bride_name || defaultConfig.bride_name],
-          ["groom_father", cfg.groom_father || defaultConfig.groom_father],
-          ["groom_mother", cfg.groom_mother || defaultConfig.groom_mother],
-          ["bride_father", cfg.bride_father || defaultConfig.bride_father],
-          ["bride_mother", cfg.bride_mother || defaultConfig.bride_mother],
-          ["wedding_date", cfg.wedding_date || defaultConfig.wedding_date],
-          ["wedding_time", cfg.wedding_time || defaultConfig.wedding_time],
-          [
-            "reception_time",
-            cfg.reception_time || defaultConfig.reception_time,
-          ],
-          ["venue_name", cfg.venue_name || defaultConfig.venue_name],
-          ["venue_city", cfg.venue_city || defaultConfig.venue_city],
-          ["rsvp_deadline", cfg.rsvp_deadline || defaultConfig.rsvp_deadline],
-          ["contact_name", cfg.contact_name || defaultConfig.contact_name],
-          ["contact_phone", cfg.contact_phone || defaultConfig.contact_phone],
-        ]);
-      }
-
-      // QR Code Generation
-      // Source - https://stackoverflow.com/a/28172768
-      // Posted by zedfoxus, modified by community
-      // Retrieved 2025-01-11, License - CC BY-SA 4.0
-      function generateQRCode() {
-        const url = window.location.href;
-        const qrImage = document.getElementById("qr-code");
-        const encodedUrl = encodeURIComponent(url);
-        const apiUrl =
-          "https://api.qrserver.com/v1/create-qr-code/?data=" +
-          encodedUrl +
-          "&size=140x140";
-        qrImage.src = apiUrl;
-      }
-
-      // Copy Link Functionality
-      document
-        .getElementById("copy-link-btn")
-        .addEventListener("click", async () => {
-          const url = window.location.href;
-          const confirmation = document.getElementById("copy-confirmation");
-
-          try {
-            await navigator.clipboard.writeText(url);
-            confirmation.classList.remove("hidden");
-            setTimeout(() => {
-              confirmation.classList.add("hidden");
-            }, 3000);
-          } catch (err) {
-            const textArea = document.createElement("textarea");
-            textArea.value = url;
-            textArea.style.position = "fixed";
-            textArea.style.opacity = "0";
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
-
-            confirmation.classList.remove("hidden");
-            setTimeout(() => {
-              confirmation.classList.add("hidden");
-            }, 3000);
-          }
-        });
-
-      // Initialize SDKs
-      async function init() {
-        if (window.elementSdk) {
-          await window.elementSdk.init({
-            defaultConfig,
-            onConfigChange,
-            mapToCapabilities,
-            mapToEditPanelValues,
-          });
-          config = window.elementSdk.config;
-          await onConfigChange(config);
-        }
-
-        if (window.dataSdk) {
-          const result = await window.dataSdk.init(dataHandler);
-          if (!result.isOk) {
-            console.error("Failed to initialize data SDK");
-          }
-        }
-
-        generateQRCode();
-      }
-
-      init();
-    </script>
-    <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'9bc23261a45a7a1f',t:'MTc2ODExMTI1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
-      })();
-    </script>
-  </body>
- 
+</body>
 </html>
-
-
